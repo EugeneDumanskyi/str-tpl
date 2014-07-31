@@ -1,0 +1,29 @@
+{
+  "name": "str-tpl",
+  "version": "0.0.1",
+  "description": "Simple template extension for String instances",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EugeneDumanskyi/str-tpl.git"
+  },
+  "keywords": [
+    "string",
+    "template",
+    "format",
+    "extension"
+  ],
+  "author": {
+      "name": "Eugene Dumanskiy",
+      "email": "eugene.dumanskyi@gmail.com",
+      "url": ""
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EugeneDumanskyi/str-tpl/issues"
+  },
+  "homepage": "https://github.com/EugeneDumanskyi/str-tpl"
+}

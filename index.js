@@ -1,11 +1,18 @@
+var brackets = {
+    '{{': {opened: '\\{\\{', closed: '\\}\\}'},
+    '{%': {opened: '\\{%', closed: '%\\}'},
+    '[[': {opened: '\\[\\[', closed: '\\]\\]'}
+};
 
-String.prototype.tpl = function(obj) {
-    var formatted = this;
+String.prototype.tpl = function(obj, bracketType) {
+    var _formatted = this;
+    var _bracketType = bracketType || '{{';
+    var _bracket = brackets[_bracketType] || {opened: '\\{\\{', closed: '\\}\\}'};
 
     for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) {
-            var regexp = new RegExp('\\{\\{\\s*' + prop + '(\\|(\\d+)){0,1}\\s*\\}\\}', 'gi');
-            formatted = formatted.replace(regexp,
+            var regexp = new RegExp(_bracket.opened + '\\s*' + prop + '(\\|(\\d+)){0,1}\\s*' + _bracket.closed, 'gi');
+            _formatted = _formatted.replace(regexp,
                 (function(property) {
                     return function (m, p1, p2) {
                         //console.log(arguments);
@@ -15,5 +22,5 @@ String.prototype.tpl = function(obj) {
         }
     }
 
-    return formatted;
+    return _formatted;
 };
